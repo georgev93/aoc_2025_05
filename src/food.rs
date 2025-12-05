@@ -1,3 +1,4 @@
+#[derive(Debug, Copy, Clone)]
 pub struct IDRange {
     min: u64,
     max: u64,
@@ -18,6 +19,29 @@ impl IDRange {
     pub fn iter(&self) -> impl Iterator<Item = u64> {
         self.min..=self.max
     }
+
+    pub fn contains(&self, id: u64) -> bool {
+        if id >= self.min && id <= self.max {
+            return true;
+        }
+        false
+    }
+
+    pub fn min(&self) -> u64 {
+        self.min
+    }
+
+    pub fn max(&self) -> u64 {
+        self.max
+    }
+
+    pub fn set_min(&mut self, new_min: u64) {
+        self.min = new_min
+    }
+
+    pub fn set_max(&mut self, new_max: u64) {
+        self.max = new_max
+    }
 }
 
 impl IntoIterator for &IDRange {
@@ -27,10 +51,6 @@ impl IntoIterator for &IDRange {
     fn into_iter(self) -> Self::IntoIter {
         self.min..=self.max
     }
-
-    // fn contains(&self, id: u64) -> bool {
-    //     if id >= self.min &&
-    // }
 }
 
 #[cfg(test)]

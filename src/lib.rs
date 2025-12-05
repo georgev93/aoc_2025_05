@@ -26,10 +26,11 @@ pub fn solve(input_file: &str) -> (u64, u64) {
 
     println!("Recording ranges");
     for line in fresh_food_ranges_iter {
-        println!("Range recorded: {line}");
         fresh_food_list.insert_id_range(line);
     }
     println!("Ranges recorded!");
+    fresh_food_list.sort_and_merge();
+    println!("Ranges sorted!");
 
     let mut food_hits = 0u64;
     for food_id in needed_food_iter {
@@ -61,7 +62,7 @@ pub fn solve(input_file: &str) -> (u64, u64) {
     //     result1.load(Ordering::Relaxed),
     //     result2.load(Ordering::Relaxed),
     // )
-    (food_hits, 0)
+    (food_hits, fresh_food_list.number_of_fresh_ids())
 }
 
 #[cfg(test)]
@@ -72,13 +73,13 @@ mod tests {
     fn example() {
         let (part_1, part_2) = solve("data/example.txt");
         assert_eq!(part_1, 3);
-        assert_eq!(part_2, 0);
+        assert_eq!(part_2, 14);
     }
 
     #[test]
     fn actual() {
         let (part_1, part_2) = solve("data/input.txt");
-        assert_eq!(part_1, 0);
+        assert_eq!(part_1, 885);
         assert_eq!(part_2, 0);
     }
 }
