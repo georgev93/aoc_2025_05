@@ -1,4 +1,4 @@
-use aoc_2025_xx::solve;
+use aoc_2025_05::solve;
 
 fn main() {
     let (part_1, part_2) = solve("data/input.txt");
