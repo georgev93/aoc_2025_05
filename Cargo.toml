@@ -32,6 +32,9 @@ inherits = "release"
 opt-level = "z"
 lto = true
 
+[dependencies]
+ahash = "0.8.12"
+
 # [profile.bench]
 # inherits = "fast"
 
