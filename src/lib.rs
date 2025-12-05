@@ -27,7 +27,7 @@ pub fn solve(input_file: &str) -> (u64, u64) {
     println!("Recording ranges");
     for line in fresh_food_ranges_iter {
         println!("Range recorded: {line}");
-        fresh_food_list.insert_id_range(&IDRange::from_string(line));
+        fresh_food_list.insert_id_range(line);
     }
     println!("Ranges recorded!");
 

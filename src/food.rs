@@ -27,6 +27,10 @@ impl IntoIterator for &IDRange {
     fn into_iter(self) -> Self::IntoIter {
         self.min..=self.max
     }
+
+    // fn contains(&self, id: u64) -> bool {
+    //     if id >= self.min &&
+    // }
 }
 
 #[cfg(test)]
