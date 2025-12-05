@@ -15,6 +15,7 @@ impl FoodFinder {
 
     pub fn insert_id_range(&mut self, new_range: &IDRange) {
         for id in new_range {
+            println!("{id}");
             self.map.insert(id);
         }
     }
