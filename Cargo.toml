@@ -25,7 +25,7 @@ strip = true
 
 [profile.fast]           # custom profile for maximum speed
 inherits = "release"
-lto = false
+# lto = false
 
 [profile.small]          # custom profile for smallest size
 inherits = "release"
